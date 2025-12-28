@@ -1,0 +1,42 @@
+window {
+    background-color: #1a1b26;
+    border-radius: 8px;
+    border: 1px solid #7aa2f7;
+}
+
+#input {
+    padding: 0.7em;
+    background-color: #24283b;
+    color: #c0caf5;
+    border-top: 1px solid #7aa2f7;
+    border-left: 1px solid #7aa2f7;
+    border-right: 1px solid #7aa2f7;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+#text {
+    color: #c0caf5;
+}
+
+#entry {
+    padding: 0.7em;
+    color: #c0caf5;
+}
+
+#entry * {
+    margin: 4px;
+}
+
+#entry:selected {
+    background-color: #7aa2f7;
+    border-radius: 0px;
+} 
+
+#text:selected {
+    color: #eee;
+    font-weight: bold;
+}
+

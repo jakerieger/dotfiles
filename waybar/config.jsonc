@@ -1,0 +1,105 @@
+{
+  "layer": "top",
+  "position": "top",
+  "margin-bottom": 1,
+  "spacing" : 0,
+
+  "modules-left": [
+    "custom/cpu",
+    "custom/gpu",
+    "memory"
+  ],
+
+  "modules-center": ["clock"],
+
+  "modules-right": [
+    "bluetooth",
+    "network",
+    "pulseaudio",
+    "custom/lock"
+  ],
+
+  "hyprland/workspaces": {
+    "format": "{name}: {icon}",
+    "format-icons": {
+      "active": "",
+      "default": ""
+    }
+  },
+
+  "custom/gpu": {
+    "exec": "~/.config/waybar/scripts/gpu_info.sh",
+    "return-type": "json",
+    "interval": 1,
+    "format": "GPU:  {}",
+    "on-click": "nvidia-settings"
+  },
+
+  "custom/cpu": {
+    "exec": "~/.config/waybar/scripts/cpu_info.sh",
+    "return-type": "json",
+    "interval": 1,
+    "format": "CPU:  {}",
+    "on-click": "kitty -e htop"
+  },
+
+
+  "memory": {
+    "interval": 30,
+    "format": "   RAM:   {used:0.1f}G / {total:0.1f}G",
+    "tooltip-format": "Memory"
+  },
+
+  "bluetooth": {
+    "format": "󰂲",
+    "format-on": "{icon}",
+    "format-off": "{icon}", 
+    "format-connected":"{icon}",
+    "format-icons":{
+        "on":"󰂯",
+        "off": "󰂲",
+        "connected": "󰂱",
+        },
+    "on-click": "blueman-manager",
+    "tooltip-format-connected":"{device_enumerate}"
+  },
+
+  "clock": {
+    "timezone": "America/NewYork",
+    "tooltip": false,
+    "format": "{:%I:%M:%S %p}",
+    "interval": 1
+  },
+
+  "network": {
+    "format-wifi": "󰤢",
+    "format-ethernet": "󰈀 ",
+    "format-disconnected": "󰤠 ",
+    "interval": 5,
+    "tooltip-format": "{essid} ({signalStrength}%)",
+    "on-click": "nm-connection-editor"
+
+  },
+
+  "cpu": {
+    "interval": 1,
+    "format": "  {icon0}{icon1}{icon2}{icon3} {usage:>2}%",
+    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+    "on-click": "kitty htop"
+  },
+  
+  "pulseaudio": {
+    "format": "{icon}  {volume}%",
+    "format-muted": "",
+    "format-icons": {
+      "default": ["", "", " "]
+    },
+    "on-click": "pavucontrol"
+  },
+  
+  "custom/lock": {
+    "tooltip": false,
+    "on-click": "sh -c '(sleep 0s; hyprlock)' & disown",
+    "format" : ""
+  },
+}
